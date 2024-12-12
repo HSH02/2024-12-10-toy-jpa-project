@@ -1,5 +1,6 @@
-package com.jpa.toyjpaproject.domain;
+package com.jpa.toyjpaproject.post.domain;
 
+import com.jpa.toyjpaproject.comment.domain.Comment;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -7,6 +8,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Post 엔티티
@@ -33,10 +36,24 @@ public class Post {
 
     private boolean published;       // 게시 여부
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
+
     @CreatedDate
     @Column(updatable = false)      // 생성일은 업데이트 안되게
     private LocalDate createdAt;
 
     @LastModifiedDate
     private LocalDate updatedAt;
+
+    public void addComment(Comment comment) {
+        comments.add(comment);
+        comment.setPost(this);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+        comment.setPost(null);
+    }
+
 }
