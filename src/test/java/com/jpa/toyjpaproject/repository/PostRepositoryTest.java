@@ -8,8 +8,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  *  PostRepositoryTest:
  *  여기서는 PostRepository를 이용해 DB에 Post를 저장하고 조회하는 기능을 테스트하는 코드.
@@ -24,12 +22,16 @@ class PostRepositoryTest {
     @DisplayName("Post를 저장하고 불러오기")
     void testSaveAndFindPost(){
         // given
-        // Post는 아직 없는 상태이므로, 잠시 뒤 만들 예정
-        Post post = new Post(null, "Hello JPA", "This is my first post", false);
+        // Post post = new Post(null, "Hello JPA", "This is my first post", false);
+        Post post = Post.builder()
+                .title("Hello JPA")
+                .content("This is my first post")
+                .published(true)
+                .build();
 
 
         // when
-        post savedPost = postRepository.save(post);     // DB 저장
+        Post savedPost = postRepository.save(post);     // DB 저장
 
         // then
         // savedPost는 DB에서 생성된 ID를 가지게 될 것
