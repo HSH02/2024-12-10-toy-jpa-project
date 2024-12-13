@@ -1,6 +1,6 @@
-package com.jpa.toyjpaproject.comment.repository;
+package com.jpa.toyjpaproject.repository;
 
-import com.jpa.toyjpaproject.comment.domain.Comment;
+import com.jpa.toyjpaproject.domain.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

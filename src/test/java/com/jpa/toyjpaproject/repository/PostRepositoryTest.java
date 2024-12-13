@@ -1,7 +1,6 @@
 package com.jpa.toyjpaproject.repository;
 
-import com.jpa.toyjpaproject.post.domain.Post;
-import com.jpa.toyjpaproject.post.repository.PostRepository;
+import com.jpa.toyjpaproject.domain.Post;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

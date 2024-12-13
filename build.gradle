@@ -35,6 +35,9 @@ dependencies {
 
     // Mockito
     testImplementation 'org.mockito:mockito-core:4.0.0'
+
+    // Swager
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
 }
 
 tasks.named('test') {

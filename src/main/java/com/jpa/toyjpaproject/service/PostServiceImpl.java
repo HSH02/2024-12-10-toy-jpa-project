@@ -1,9 +1,11 @@
-package com.jpa.toyjpaproject.post.service;
+package com.jpa.toyjpaproject.service;
 
-import com.jpa.toyjpaproject.post.domain.Post;
+import com.jpa.toyjpaproject.domain.Post;
 import com.jpa.toyjpaproject.error.PostNotFoundException;
-import com.jpa.toyjpaproject.post.repository.PostRepository;
+import com.jpa.toyjpaproject.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +14,14 @@ import java.util.Optional;
 @Service
 public class PostServiceImpl implements PostService {
 
+
     private final PostRepository postRepository;
 
     @Autowired
     public PostServiceImpl(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
+
 
     @Override
     public Post createPost(Post post) {
@@ -30,8 +34,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAllPosts() {
-        return postRepository.findAll();
+    public Page<Post> getAllPosts(Pageable pageable) {
+        return postRepository.findAll(pageable);
     }
 
     @Override

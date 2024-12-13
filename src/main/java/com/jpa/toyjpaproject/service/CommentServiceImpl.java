@@ -1,11 +1,11 @@
-package com.jpa.toyjpaproject.comment.service;
+package com.jpa.toyjpaproject.service;
 
-import com.jpa.toyjpaproject.comment.domain.Comment;
-import com.jpa.toyjpaproject.comment.repository.CommentRepository;
+import com.jpa.toyjpaproject.domain.Comment;
+import com.jpa.toyjpaproject.repository.CommentRepository;
 import com.jpa.toyjpaproject.error.CommentNotFoundException;
 import com.jpa.toyjpaproject.error.PostNotFoundException;
-import com.jpa.toyjpaproject.post.domain.Post;
-import com.jpa.toyjpaproject.post.repository.PostRepository;
+import com.jpa.toyjpaproject.domain.Post;
+import com.jpa.toyjpaproject.repository.PostRepository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,12 +35,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Optional<Comment> getComment(Long postId, Long commentId) {
-        return commentRepository.findById(commentId);
+    public Optional<Comment> getCommentById(Long id) {
+        return commentRepository.findById(id);
     }
 
     @Override
-    public List<Comment> getComments(Long postId) {
+    public List<Comment> getCommentsByPostId(Long postId) {
         return commentRepository.findByPostId(postId);
     }
 

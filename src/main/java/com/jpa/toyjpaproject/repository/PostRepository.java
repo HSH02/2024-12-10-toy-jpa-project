@@ -1,6 +1,6 @@
-package com.jpa.toyjpaproject.post.repository;
+package com.jpa.toyjpaproject.repository;
 
-import com.jpa.toyjpaproject.post.domain.Post;
+import com.jpa.toyjpaproject.domain.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

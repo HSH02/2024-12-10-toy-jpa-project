@@ -1,6 +1,5 @@
-package com.jpa.toyjpaproject.comment.domain;
+package com.jpa.toyjpaproject.domain;
 
-import com.jpa.toyjpaproject.post.domain.Post;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;

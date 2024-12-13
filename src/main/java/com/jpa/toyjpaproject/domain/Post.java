@@ -1,20 +1,19 @@
-package com.jpa.toyjpaproject.post.domain;
+package com.jpa.toyjpaproject.domain;
 
-import com.jpa.toyjpaproject.comment.domain.Comment;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Post 엔티티
  * title, content, published 필드 보유
- * @Entity 어노테이션으로 JPA가 관리하는 엔티티로 지정
+ * &#064;Entity  어노테이션으로 JPA가 관리하는 엔티티로 지정
  */
 @Entity
 @Getter
@@ -41,10 +40,10 @@ public class Post {
 
     @CreatedDate
     @Column(updatable = false)      // 생성일은 업데이트 안되게
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
-    private LocalDate updatedAt;
+    private LocalDateTime updatedAt;
 
     public void addComment(Comment comment) {
         comments.add(comment);
